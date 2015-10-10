@@ -21,17 +21,13 @@ for(var i=0; i < os.networkInterfaces().en0.length; i++){
 // 自动打开浏览器
 var path = 'http://' + IPAddr + ':' + app.get('port') + '/'
 var child_process = require('child_process')
-    var cmd = 'open "' + path + '"'
+var cmd = 'open "' + path + '"'
 
-    child_process.exec(cmd, function(err, stdout, error){
-        if(err) {
-            console.log('error:' + error)
-        } else {
-            console.log(1)
-        }
-    })
-
-app.listen(app.get('port'), function() {
-    var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
-    console.log('Server started: ' + url)
+child_process.exec(cmd, function(err, stdout, error){
+    if(err) {
+        console.log('error:' + error)
+    } else {
+        var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
+        console.log('Server started: ' + url)
+    }
 })
