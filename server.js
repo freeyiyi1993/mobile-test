@@ -19,9 +19,8 @@ for(var i=0; i < os.networkInterfaces().en0.length; i++){
 }
 
 // 自动打开浏览器
-var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
 var child_process = require('child_process')
-var cmd = 'open "' + url + '"'
+var cmd = 'open "http://' + IPAddr + ':' + app.get('port') + '/"'
 
 child_process.exec(cmd, function(err, stdout, error){
     if(err) {
