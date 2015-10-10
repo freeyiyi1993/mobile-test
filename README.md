@@ -4,7 +4,8 @@
 
 ### 文件目录
 
-![](http://images2015.cnblogs.com/blog/383794/201510/383794-20151010220854956-1101569318.png)
+<!-- ![]() -->
+<img src="http://images2015.cnblogs.com/blog/383794/201510/383794-20151010220854956-1101569318.png" style="width=200px;" alt="">
 
 
 ### Usage
