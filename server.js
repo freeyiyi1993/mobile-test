@@ -1,34 +1,37 @@
-var fs = require('fs');
-var path = require('path');
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+var fs = require('fs')
+var path = require('path')
+var express = require('express')
+var app = express()
+var os = require('os')
+var IPAddr
 
-app.set('port', (process.env.PORT || 3000));
+app.set('port', (process.env.PORT || 3000))
 
-app.use('/', express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use('/', express.static(path.join(__dirname, 'public')))
 
-app.get('/api/comments', function(req, res) {
-  fs.readFile('comments.json', function(err, data) {
-    res.setHeader('Cache-Control', 'no-cache');
-    res.json(JSON.parse(data));
-  });
-});
 
-app.post('/api/comments', function(req, res) {
-  fs.readFile('comments.json', function(err, data) {
-    var comments = JSON.parse(data);
-    comments.push(req.body);
-    fs.writeFile('comments.json', JSON.stringify(comments, null, 4), function(err) {
-      res.setHeader('Cache-Control', 'no-cache');
-      res.json(comments);
-    });
-  });
-});
+// 计算本地IP
+for(var i=0; i < os.networkInterfaces().en0.length; i++){
 
+    if(os.networkInterfaces().en0[i].family === 'IPv4'){
+        IPAddr = os.networkInterfaces().en0[i].address
+    }
+}
+
+// 自动打开浏览器
+var path = 'http://' + IPAddr + ':' + app.get('port') + '/'
+var child_process = require('child_process')
+    var cmd = 'open "' + path + '"'
+
+    child_process.exec(cmd, function(err, stdout, error){
+        if(err) {
+            console.log('error:' + error)
+        } else {
+            console.log(1)
+        }
+    })
 
 app.listen(app.get('port'), function() {
-  console.log('Server started: http://localhost:' + app.get('port') + '/');
-});
+    var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
+    console.log('Server started: ' + url)
+})

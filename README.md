@@ -1,16 +1,14 @@
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+### 简介
 
-# React Tutorial
+一个测试工程的模板,方便使用手机测试某些bug or demo页面
 
-This is the React comment box example from [the React tutorial](http://facebook.github.io/react/docs/tutorial.html).
-
-## To use
-
-There are several simple server implementations included. They all serve static files from `public/` and handle requests to `/api/comments` to fetch or add data. Start a server with one of the following:
-
-### Node
+### Usage
 
 ```sh
+cd mobile-test
 npm install
-node server.js
+node server.js | npm start
+
 ```
+会自动使用默认浏览器打开页面:`[你当前内网ip]:3000`，如果你安装了`二维码生成器`插件(firefox会自带)，就可以愉快地拿出爪机扫一扫了
+
