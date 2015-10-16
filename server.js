@@ -4,6 +4,7 @@ var express = require('express')
 var app = express()
 var os = require('os')
 var IPAddr
+var i = 0
 
 app.set('port', (process.env.PORT || 3000))
 
@@ -11,12 +12,14 @@ app.use('/', express.static(path.join(__dirname, 'public')))
 
 
 // 计算本地IP
-for(var i=0; i < os.networkInterfaces().en0.length; i++){
+// for(var i=0; i < os.networkInterfaces().en0.length; i++){
 
-    if(os.networkInterfaces().en0[i].family === 'IPv4'){
-        IPAddr = os.networkInterfaces().en0[i].address
-    }
-}
+//     if(os.networkInterfaces().en0[i].family === 'IPv4'){
+//         IPAddr = os.networkInterfaces().en0[i].address
+//     }
+// }
+while(os.networkInterfaces().en0[i].family !== 'IPv4'){i++ }
+IPAddr = os.networkInterfaces().en0[i].address
 
 // 打开浏览器
 var child_process = require('child_process')
