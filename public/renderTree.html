@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渲染树demo</title>
+</head>
+<body>
+    <div>abc</div>
+    <canvas id="webgl" width="100" height="100"></canvas>
+    <a href="http://thisisaa"></a>
+    <img src="" alt="">
+    <input type="button" value="button">
+    <select name="" id=""></select>
+    <table width="100" height="50">
+        <tr>
+            <td>d0</td>
+        </tr>
+    </table>
+
+<script>
+var canvas = document.querySelector('#webgl')
+    gl = canvas.getContext('experimental-webgl');
+
+if (!gl) {
+    alert('不支持webgl');
+};
+</script>
+</body>
+</html>

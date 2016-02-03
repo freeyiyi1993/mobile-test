@@ -1,0 +1,14 @@
+.flex-box {
+    display: -webkit-box;
+    display: flex;
+    width: 100px;
+    height: 200px;
+    background-color: blue;
+
+}
+.center-square {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    margin: auto;
+}

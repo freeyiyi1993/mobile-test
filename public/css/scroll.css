@@ -1,0 +1,22 @@
+body {
+    background-color: #478;
+    height: 2000px;
+}
+
+.list {
+    border: 1px solid #999;
+    height: 400px;
+    margin: auto;
+    overflow: auto;
+    padding: 0;
+}
+.list li {
+    background-color: #666;
+    color: #fff;
+    line-height: 3;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.list .active {
+    background-color: red;
+}

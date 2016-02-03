@@ -1,0 +1,39 @@
+body {
+    background-color: #000036;
+}
+.scratcher {
+    display: none;      
+    width: 125px;
+    height: 125px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background: url(https://firefox.club.tw/static/img/event/every-moment/scratch/scratch-white.png) no-repeat;
+  }
+    
+.scratcher #fx-scratcher, .scratcher #fx-icon {
+    position: absolute;
+}
+.scratcher #fx-scratcher {
+    transition: opacity 0.5s ease-out 0s;
+}
+.scratcher.complete #fx-scratcher {
+    opacity: 0;
+}
+.scratcher #fx-icon {
+    transition: all 0.5s ease-out 0.5s;
+    left: 0;
+    top: 0;
+    width: 125px;
+    height: 125px;
+}
+.scratcher.complete #fx-icon {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    left: -83px;
+    top: -100px;
+}

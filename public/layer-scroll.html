@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/scroll.css">
+    <link rel="stylesheet" href="css/layer-scroll.css">
+
+    <title>layer & scroll</title>
+    <script src="/libs/zepto-aio.js"></script>
+</head>
+<body>
+<div class="layer">
+<ul class="list">
+    <li>滚动条1</li>
+    <li>滚动条2</li>
+    <li>滚动条3</li>
+    <li>滚动条4</li>
+    <li>滚动条5</li>
+    <li>滚动条6</li>
+    <li>滚动条7</li>
+    <li>滚动条8</li>
+    <li>滚动条9</li>
+    <li>滚动条10</li>
+    <li>滚动条11</li>
+    <li>滚动条12</li>
+    <li>滚动条13</li>
+    <li>滚动条14</li>
+    <li>滚动条15</li>
+    <li>滚动条16</li>
+    <li>滚动条17</li>
+    <li>滚动条18</li>
+    <li>滚动条19</li>
+    <li>滚动条20</li>
+    <li>滚动条21</li>
+    <li class="active">滚动条22</li>
+    <li>滚动条23</li>
+    <li>滚动条24</li>
+    <li>滚动条25</li>
+    <li>滚动条26</li>
+    <li>滚动条27</li>
+    <li>滚动条28</li>
+    <li>滚动条29</li>
+    <li>滚动条30</li>
+    <li>滚动条31</li>
+    <li>滚动条32</li>
+    <li>滚动条33</li>
+    <li>滚动条34</li>
+    <li>滚动条35</li>
+    <li>滚动条36</li>
+    <li>滚动条37</li>
+    <li>滚动条38</li>
+    <li>滚动条39</li>
+    <li>滚动条40</li>
+    <li>滚动条41</li>
+    <li>滚动条42</li>
+    <li>滚动条43</li>
+    <li>滚动条44</li>
+    <li>滚动条45</li>
+    <li>滚动条46</li>
+    <li>滚动条47</li>
+    <li>滚动条48</li>
+    <li>滚动条49</li>
+    <li>滚动条50</li>
+</ul>
+</div>
+
+
+    <button>点我看到红色</button>
+<script>
+$(function () {
+    // 子元素滚动完父元素不滚动
+    $('.list').on('touchmove', function (e) {
+
+        var scrollTarget = $(this)[0];
+        if (scrollTarget.scrollTop + scrollTarget.clientHeight === scrollTarget.scrollHeight) {// 还有border呢
+            e.preventDefault();
+        }
+    });
+})
+
+</script>
+</body>
+</html>

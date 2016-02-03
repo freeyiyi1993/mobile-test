@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>实现的遮罩动画</title>
+    <script src="libs/zepto.js"></script>
+    <style>
+    body {
+        margin: 0;
+    }
+    .container {
+       position: relative;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="./img/web_heart_animation.png" alt="">
+    </div>
+</body>
+<script>
+    $(function () {
+        (function () {
+            'use strict';
+
+            var $scope = $(window),
+                $target = $('.container'),
+                bgColor = 'rgba(0, 0, 0, .36)';
+            // bg 一个半透明遮罩层 canvas 铺满屏幕 透明度.7的canvas
+            // front 一个透明圆
+            var mask_WIDTH = $scope.width();
+            var mask_HEIGHT = $scope.height();
+            var maskCanvas = document.createElement('canvas');
+            maskCanvas.width = mask_WIDTH;
+            maskCanvas.height = mask_HEIGHT;
+            $target.append(maskCanvas);
+            maskCanvas.style.position = 'absolute';
+            maskCanvas.style.top = '0';
+            maskCanvas.style.left = '0';
+            // maskCanvas.style.backgroundColor = bgColor;
+            var ctx = maskCanvas.getContext('2d');
+            // ctx.clearRect(0, 0, mask_WIDTH, mask_HEIGHT);
+            ctx.globalCompositeOperation = 'source-over';
+            ctx.fillRect(0, 0, mask_WIDTH, mask_HEIGHT);
+            ctx.fillStyle = bgColor;
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.beginPath();
+            // ctx.arc(maskX, maskY, MASK_R, 0, Math.PI * 2, true);
+            // void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+            ctx.ellipse(100, 50, 100, 50, 0, 0, Math.PI * 2, false);
+            // ctx.fillStyle = "rgba(0, 0, 0, .7)";
+            ctx.fill();
+        })();
+    })
+
+</script>
+</html>

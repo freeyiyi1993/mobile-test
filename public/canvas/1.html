@@ -1,0 +1,15 @@
+<title>图片</title>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;"></canvas>
+<div style="display:none;">
+  <img id="source" src="https://mdn.mozillademos.org/files/5397/rhino.jpg"
+       width="300" height="227">
+</div>
+<script>
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext('2d');
+var image = document.getElementById("source");
+
+ctx.drawImage(image, 33, 71, 104, 124, 21, 20, 87, 104);
+</script>
+
+<!-- 失败 -->

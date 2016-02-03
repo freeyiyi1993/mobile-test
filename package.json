@@ -1,15 +1,36 @@
 {
   "name": "moible-test",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "main": "server.js",
-  "dependencies": {
-    "express": "^4.4.5"
-  },
-  "devDependencies": {},
   "scripts": {
     "start": "node server.js"
   },
-  "engines" : {
-    "node" : "0.12.x"
-  }
+  "engines": {
+    "node": "0.12.x"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "cssnext": "^1.8.4",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "precss": "^1.3.0",
+    "webpack": "^1.12.4"
+  },
+  "description": "一个测试工程的模板,方便使用手机测试某些bug or demo页面",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeyiyi1993/mobile-test.git"
+  },
+  "keywords": [
+    "mobile",
+    "gulp",
+    "webpack"
+  ],
+  "author": "sunxinjie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freeyiyi1993/mobile-test/issues"
+  },
+  "homepage": "https://github.com/freeyiyi1993/mobile-test"
 }

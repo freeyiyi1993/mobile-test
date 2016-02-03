@@ -1,0 +1,34 @@
+h1 {
+    -webkit-animation: shake 1s linear infinite;
+    animation: shake 1s linear infinite;
+}
+@-webkit-keyframes shake {
+    0% {
+        -webkit-transform: translateX(0px)
+    }
+    50% {
+        -webkit-transform: translateX(10px)
+    }
+    100% {
+        -webkit-transform: translateX(0px)
+    }
+}
+li {
+    position: relative;
+    height: 30px;
+}
+img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+}
+.date {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+p {
+    margin-left: 40px;
+}

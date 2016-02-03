@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+ </head>
+<style>
+#demo {
+  width: 100px;
+  overflow: hidden;
+  border: 2px solid red;
+  padding: 10px;
+  height: 300px;
+}
+
+/* 300 + 2*10padding+2*1border;*/
+#indemo {
+  width: 800%;
+  overflow: hidden;
+  border: 1px solid green;
+  height: 200px;
+}
+
+#demo1 {
+  float: left;
+  margin-right: 30px;
+  border: 2px solid #3300FF;
+  padding: 5px;
+}
+
+#demo2 {
+  float: left;
+}
+
+</style>
+
+<div id="demo">
+     <div id="indemo">
+          <div id="demo1"><a href="#">测试1</a>  <a href="#">测试2</a>  <a href="#">测试1</a>  </div>
+          <div id="demo2">demo2</div>
+     </div>
+</div>
+<script>
+/* offsetWidth: 1.设定宽度：实际宽度为设定的宽度+padding+border* 2.没有设定宽度：内容的宽度+padding+border;*/
+   var a = document.getElementById("demo");
+    //alert(a.offsetWidth);// 122;
+   var b = document.getElementById("demo1");
+    // alert(b.offsetWidth);//182;
+   var c = document.getElementById("demo2");
+    // alert(c.offsetWidth);//40;
+   //alert(a.clientWidth);// 120  可视区域的宽度(不包括border)
+   //alert(a.clientLeft);// 左边border 的宽度
+   //alert(a.scrollLeft);// 0 卷到左边的宽度为0
+
+</script>

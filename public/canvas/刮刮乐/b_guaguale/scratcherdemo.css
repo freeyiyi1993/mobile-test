@@ -1,0 +1,41 @@
+/*.cell {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.cell canvas {
+	vertical-align: middle;
+}
+
+.bigtext {
+	font-size: 2em;
+}
+
+.canthumb {
+	border: 1px solid #222;
+}
+
+.bigtopmargin {
+	margin-top: 3ex;
+}*/
+
+/*.hidden {
+	display: none;
+}
+
+.blink {
+	text-decoration: blink; 
+}*/
+
+#maincanvas {
+	border: 1px solid #222;
+	cursor: crosshair;
+	/* cursor: url(images/cursor.png) 22 22, crosshair; */
+}
+
+/*#main {
+}
+
+#loading {
+}*/

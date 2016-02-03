@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>twitter</title>
+    <script src="libs/zepto.js"></script>
+    <style>
+    .like {
+        position: absolute;
+        cursor: pointer;
+        background: url("img/web_heart_animation.png");
+        background-position: left;
+        background-repeat: no-repeat;
+        background-size: 2900%;
+        height: 50px;
+        width: 50px;
+    }
+    .like:hover {
+        background-position: right;
+    }
+    .is_animating {
+        animation: heart-burst .8s steps(28) 1;
+    }
+    @keyframes heart-burst {
+        from {
+            background-position:left;
+        }
+        to {
+            background-position:right;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="like"></div>
+
+<script>
+    $(function () {
+        $('.like').on('click', function () {
+            $(this).toggleClass('is_animating');
+        });
+        $('.like').on('animationend', function () {
+            $(this).toggleClass('is_animating');
+        });
+    });
+</script>
+</body>
+</html>

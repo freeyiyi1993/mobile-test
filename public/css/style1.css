@@ -1,0 +1,63 @@
+body {
+        margin: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .circle {
+        width: 300px;
+        height: 300px;
+        display: block;
+        box-sizing: border-box;
+        background: #329ade;
+        color: #fff;
+        margin: 100px auto;
+        border-radius: 50%;
+        /*-webkit-transform: translateX(0);*/
+        /* -webkit-transform: matrix(1, 0, 0, 1, 0, 0); */
+      /* -webkit-transform: skew(0); */
+      /* -webkit-transform: scale(1); */
+      /* -webkit-transform: translate(0); */
+      /* -webkit-transform: translateX(0); */
+      /*-webkit-transform: translate3d(0,0,0); */
+      /* -webkit-transform: translate(0px, 0px); */
+        /* z-index: 0; */
+        /* -webkit-transform: rotate(0deg); */
+        /* -webkit-transform: translateZ(0); */
+    }
+    .ripple-target {
+        position: relative;
+        overflow: hidden;
+    }
+    .ripple {
+        position: absolute;
+        background: rgba(0, 0, 0, .8);
+        border-radius: 100%;
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    }
+
+    .ripple.show {
+
+
+        -webkit-animation: ripple 3s ease-out;
+        animation: ripple 3s ease-out;
+        /* paused */
+          /*animation-delay: -1.5s;
+         animation-play-state: paused;*/
+    }
+
+    @-webkit-keyframes ripple {
+        to {
+            -webkit-transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    @keyframes ripple {
+        to {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
