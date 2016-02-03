@@ -17,7 +17,7 @@ var template =
 '<head>'+
 '<meta charset="utf-8"/>'+
 '<title>{title}</title>'+
-'<style>.dir{background-color: red;}a:link,a:hover,a:visited{color:#00E;}</style>'+
+'<style>small {color: red}.dir{background-color: red;}.dir a:link,.dir a:hover,.dir a:visited{color: #eee;}a:link,a:hover,a:visited{color:#999; line-height: 1.5}</style>'+
 '</head>'+
 '<body>'+
 '<h2>{path}</h2>'+
@@ -50,7 +50,7 @@ var walk = function(path) {
         if (re.exec(str)) {
           title = re.exec(str)[1]
         }
-        files.push('<li><a href="'+'./'+file+'">'+ file + ' | ' + title +'</a></li>')
+        files.push('<li><a href="'+'./'+file+'">'+ file + ' | <small>' + title +'</small></a></li>')
       } else if (stat.isDirectory()) {
         files.push('<li class="dir"><a href="'+'./'+file+'">'+file+'</a></li>')
         walk(path + '/' + file)
@@ -71,7 +71,7 @@ while(os.networkInterfaces().en0[i].family !== 'IPv4'){i++ }
 IPAddr = os.networkInterfaces().en0[i].address
 // 打开浏览器
 var child_process = require('child_process')
-var cmd = 'open http://' + IPAddr + ':' + app.get('port') + '/'
+var cmd = 'open http://' + IPAddr + ':' + app.get('port') + '/canvas'
 // 监听端口 并给出提示信息
 app.listen(app.get('port'), function() {
   child_process.exec(cmd, function(err, stdout, error){
