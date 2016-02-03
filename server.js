@@ -27,9 +27,18 @@ var template =
 
 var models_path = __dirname + '/public'
 
+var createIndex = function (path, content) {
+
+  fs.writeFile(path + '/index.html', content, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+  });
+}
+
 var walk = function(path) {
   var files = []
-  var html
+  // var html
 
   fs
     .readdirSync(path)
@@ -40,30 +49,22 @@ var walk = function(path) {
         files.push('<li><a href="'+'./'+file+'">'+file+'</a></li>')
       } else if (stat.isDirectory()) {
         files.push('<li class="dir"><a href="'+'./'+file+'">'+file+'</a></li>')
+        // createIndex(path + '/' + file, substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'}))
+        walk(path + '/' + file)
       }
     })
 
-  html = substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'})
-  return html;
+  // html = substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'})
+  // return html;
+  // console.log('createIndex:', path)
+  createIndex(path, substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'}))
 }
 
+walk(models_path)
+
+
 app.set('port', (process.env.PORT || 3000))
-// express.static(path.join(__dirname, 'public'))
-var options = {
-  dotfiles: 'ignore',
-  etag: false,
-  extensions: ['htm', 'html'],
-  index: 'index.html',
-  maxAge: '1d',
-  redirect: false,
-  setHeaders: function (res, path, stat) {
-    res.set('x-timestamp', Date.now());
-  }
-}
-app.use('/', express.static('public', options))
-// app.get('/', function (req, res) {
-  // res.send(walk(models_path))
-// })
+app.use('/', express.static(path.join(__dirname, 'public')))
 
 // 计算本地IP
 while(os.networkInterfaces().en0[i].family !== 'IPv4'){i++ }
@@ -73,14 +74,14 @@ var child_process = require('child_process')
 var cmd = 'open http://' + IPAddr + ':' + app.get('port') + '/'
 // 监听端口 并给出提示信息
 app.listen(app.get('port'), function() {
-    // child_process.exec(cmd, function(err, stdout, error){
-    //     if(err) {
-    //         console.log('error:' + error)
-    //     } else {
-    //         var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
-    //         console.log('Server started: ' + url)
-    //     }
-    // })
+  child_process.exec(cmd, function(err, stdout, error){
+    if(err) {
+        console.log('error:' + error)
+    } else {
+        var url = 'http://' + IPAddr + ':' + app.get('port') + '/'
+        console.log('Server started: ' + url)
+    }
+  })
 })
 
 // jsonp
@@ -92,13 +93,4 @@ app.all('*', function (req, res, next) {
         'Access-Control-Allow-Methods': 'GET'
     });
     next();
-});
-
-// // 写入文件
-var html = walk(models_path)
-fs.writeFile("./public/index.html", html, function(err) {
-    if(err) {
-        return console.log(err);
-    }
-    console.log("The index.html file was saved!");
 });
