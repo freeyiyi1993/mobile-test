@@ -1,17 +1,22 @@
-var gulp = require('gulp');
-var postcss = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssnext = require('cssnext');
-var precss = require('precss');
+var gulp = require('gulp'),
+    browserSync = require('browser-sync');
 
+gulp.task('browser-sync', function () {
+   var files = [
+      'public/**/*.html',
+      'public/css/**/*.css',
+      'public/imgs/**/*.png',
+      'public/js/**/*.js'
+   ];
 
-gulp.task('css', function() {
-    var processors = [
-        autoprefixer,
-        cssnext,
-        precss
-    ];
-    return gulp.src('./public/css/*.css')
-        .pipe(postcss(processors))
-        .pipe(gulp.dest('./public/dest/css'));
+   browserSync.init(files, {
+      server: {
+         baseDir: './public'
+      }
+   });
 });
+
+gulp.task('default', function () {
+   gulp.run('browser-sync');
+});
+
