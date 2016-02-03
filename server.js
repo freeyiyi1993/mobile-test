@@ -28,35 +28,35 @@ var template =
 var models_path = __dirname + '/public'
 
 var createIndex = function (path, content) {
-
   fs.writeFile(path + '/index.html', content, function(err) {
       if(err) {
           return console.log(err);
       }
   });
 }
+var re = /<title>(.*)<\/title>/
+var title = ''
 
 var walk = function(path) {
   var files = []
-  // var html
-
   fs
     .readdirSync(path)
     .forEach(function(file) {
       var newPath = path + '/' + file
       var stat = fs.statSync(newPath)
-      if (stat.isFile()) {
-        files.push('<li><a href="'+'./'+file+'">'+file+'</a></li>')
+      if (stat.isFile() && file !== '.DS_Store' && file !== 'index.html') {
+        // 读取title
+        var str = fs.readFileSync(path + '/' + file, 'utf8')
+        if (re.exec(str)) {
+          title = re.exec(str)[1]
+        }
+        files.push('<li><a href="'+'./'+file+'">'+ file + ' | ' + title +'</a></li>')
       } else if (stat.isDirectory()) {
         files.push('<li class="dir"><a href="'+'./'+file+'">'+file+'</a></li>')
-        // createIndex(path + '/' + file, substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'}))
         walk(path + '/' + file)
       }
     })
 
-  // html = substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'})
-  // return html;
-  // console.log('createIndex:', path)
   createIndex(path, substitute(template,{title:'List',path:path,body:'<ul>'+files.join('')+'</ul>'}))
 }
 
