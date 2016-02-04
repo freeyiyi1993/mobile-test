@@ -1,40 +1,3 @@
-/**
- * Scratch-off canvas
- *
- * NOTE: this code monkeypatches Function.prototype.bind() if it doesn't
- * already exist.
- *
- * NOTE: This is demo code that has been converted to be less demo-y.
- * But it is still demo-y.
- *
- * To make (more) correct:
- *  o   add error handling on image loads
- *  o   fix inefficiencies
- *
- * depends on jQuery>=1.7
- *
- * Copyright (c) 2012 Brian "Beej Jorgensen" Hall <beej@beej.us>
- *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
- * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
- * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
- * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
- * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
-
 Scratcher = (function () {
 
     /**
@@ -72,7 +35,7 @@ Scratcher = (function () {
     };
 
     /**
-     * Construct a new scratcher object
+     * Construct a new scratcher o
      *
      * @param canvasId [string] the canvas DOM ID, e.g. 'canvas2'
      * @param backImage [string, optional] URL to background (bottom) image
@@ -405,7 +368,7 @@ Scratcher = (function () {
     function supportsCanvas() {
         return !!document.createElement('canvas').getContext;
     }
-    
+
     /**
      * Handle scratch event on a scratcher
      */

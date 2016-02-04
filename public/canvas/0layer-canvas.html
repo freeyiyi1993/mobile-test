@@ -7,6 +7,7 @@
     <style>
     body {
         margin: 0;
+        background-color: blue;
     }
     .container {
        position: relative;
@@ -25,7 +26,7 @@
 
             var $scope = $(window),
                 $target = $('.container'),
-                bgColor = 'rgba(0, 0, 0, .36)';
+                bgColor = 'rgba(255, 255, 255, .36)';
             // bg 一个半透明遮罩层 canvas 铺满屏幕 透明度.7的canvas
             // front 一个透明圆
             var mask_WIDTH = $scope.width();
@@ -40,14 +41,14 @@
             // maskCanvas.style.backgroundColor = bgColor;
             var ctx = maskCanvas.getContext('2d');
             // ctx.clearRect(0, 0, mask_WIDTH, mask_HEIGHT);
-            ctx.globalCompositeOperation = 'source-over';
+            ctx.globalCompositeOperation = 'destination-over';
             ctx.fillRect(0, 0, mask_WIDTH, mask_HEIGHT);
             ctx.fillStyle = bgColor;
-            ctx.globalCompositeOperation = 'destination-out';
-            ctx.beginPath();
-            // ctx.arc(maskX, maskY, MASK_R, 0, Math.PI * 2, true);
-            // void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
-            ctx.ellipse(100, 50, 100, 50, 0, 0, Math.PI * 2, false);
+            // ctx.globalCompositeOperation = 'destination-out';
+            // ctx.beginPath();
+            // // ctx.arc(maskX, maskY, MASK_R, 0, Math.PI * 2, true);
+            // // void ctx.ellipse(x, y, radiusX, radiusY, rotation, startAngle, endAngle, anticlockwise);
+            // ctx.ellipse(100, 50, 100, 50, 0, 0, Math.PI * 2, false);
             // ctx.fillStyle = "rgba(0, 0, 0, .7)";
             ctx.fill();
         })();

@@ -17,7 +17,7 @@ var template =
     '<head>' +
     '<meta charset="utf-8"/>' +
     '<title>{title}</title>' +
-    '<style>small {color: red}.dir{background-color: red;}.dir a:link,.dir a:hover,.dir a:visited{color: #eee;}a:link,a:hover,a:visited{color:#999; line-height: 1.5}</style>' +
+    '<style>small {color: red}.dir{background-color: red;}.dir a:link,.dir a:hover,.dir a:visited{color: #eee;}a:link,a:hover,a:visited{color:#999; line-height: 1.5;}</style>' +
     '</head>' +
     '<body>' +
     '<h2>{path}</h2>' +

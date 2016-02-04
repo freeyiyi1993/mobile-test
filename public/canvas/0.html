@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <script src="/libs/zepto.js"></script>
     <style>
+    body {
+        background-color: lime;
+    }
     #container {
         border: 1px solid #999;
     }
@@ -15,16 +18,41 @@
 <script>
 $(function () {
     var canvas = document.getElementById("container");
-    var ctx = canvas.getContext("2d");
+    var context = canvas.getContext("2d");
     // 透明矩形
-    ctx.font = '38pt Arial';
-    ctx.fillStyle = 'cornflowerblue';
-    ctx.strokeStyle = 'blue';
+    // text
+    context.font = '24px Helvetica';
+    context.fillText('Click anywhere to test', 75, 200);
 
-    ctx.fillText("Hello Canvas", canvas.width/2 - 150, canvas.height/2 + 15);
+    // 透明背景
+    context.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fill();
 
-    ctx.strokeText("Hello Canvas", canvas.width/2 - 150, canvas.height/2 + 15 );
+    // 边框 椭圆
+    context.lineWidth = '7';
+    context.strokeStyle = '#fff';
+    context.ellipse(130, 80, 100, 50, 0, 0, Math.PI * 2, false);
+    context.closePath();
+    context.stroke();
+    // 挖空 椭圆
+    context.globalCompositeOperation = 'destination-out';
+    context.fillStyle = 'rgba(255, 255, 255, 1)';
+    context.beginPath();
+    context.ellipse(130, 80, 100, 50, 0, 0, Math.PI * 2, false);
+    context.fill();
 
+    context.globalCompositeOperation = 'source-over';
+    // image
+    var image = new Image();
+    image.onload = function () {
+        context.drawImage(image, 200, 200);
+    }
+    image.src = '/img/1.jpg'
+
+    context.canvas.onmousedown = function (e) {
+       context.clearRect(0, 0, canvas.width, canvas.height);
+    };
 })
 </script>
 </body>
