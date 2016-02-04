@@ -29,7 +29,7 @@
 <body>
     <div class="scracherContainer">
         <!-- 结果 可动态写入 -->
-        <img src="/img/scracher/background.png" alt="">
+        <img src="/img/scratcher/background.png" alt="">
         <canvas id="scracher"></canvas>
     </div>
 <script>
@@ -49,7 +49,7 @@ $(function () {
         context.drawImage(image, 0, 0, canvas.width, canvas.height);
         context.globalCompositeOperation = 'destination-out';
     }
-    image.src = '/img/scracher/foreground.png';
+    image.src = '/img/scratcher/foreground.png';
 
 
     // 设置scracherLine

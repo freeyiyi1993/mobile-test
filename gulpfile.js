@@ -4,8 +4,10 @@ var gulp = require('gulp'),
 gulp.task('browser-sync', function () {
    var files = [
       'public/**/*.html',
+      'public/**/*.js',
+      'public/**/*.css',
       'public/css/**/*.css',
-      'public/imgs/**/*.png',
+      'public/img/**/*.png',
       'public/js/**/*.js'
    ];
 

@@ -1,26 +1,25 @@
-<html>
-<title>笑脸</title>
- <head>
-  <script type="application/javascript">
-    function draw() {
-      var canvas = document.getElementById('canvas');
-      if (canvas.getContext){
-        var ctx = canvas.getContext('2d');
-
-        ctx.beginPath();
-        ctx.arc(75,75,50,0,Math.PI*2,true); // 绘制
-        ctx.moveTo(110,75);
-        ctx.arc(75,75,35,0,Math.PI,false);   // 口(顺时针)
-        ctx.moveTo(65,65);
-        ctx.arc(60,65,5,0,Math.PI*2,true);  // 左眼
-        ctx.moveTo(95,65);
-        ctx.arc(90,65,5,0,Math.PI*2,true);  // 右眼
-        ctx.stroke();
-      }
-    }
-  </script>
- </head>
- <body onload="draw();">
-   <canvas id="canvas" width="150" height="150"></canvas>
- </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <script src="/libs/zepto.js"></script>
+    <link rel="stylesheet" href="scratcher.css">
+    <title>组件-刮刮乐</title>
+</head>
+<body>
+    <div class="scratcherContainer">
+        <!-- 结果 可动态写入 -->
+        <img src="/img/scratcher/background.png" alt="">
+        <canvas class="scratcher"></canvas>
+    </div>
+<script src="scratcher2.js"></script>
+<script>
+$('.scratcher').scratcher({
+  maskImage: '/img/scratcher/foreground.png',
+  threshold: 50, // 刮刮乐显示结果的临界值
+  lineWidth: 45 // 线宽
+});
+</script>
+</body>
 </html>
