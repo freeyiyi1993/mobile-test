@@ -77,7 +77,7 @@ while (os.networkInterfaces().en0[i].family !== 'IPv4') {
 IPAddr = os.networkInterfaces().en0[i].address
     // 打开浏览器
 var child_process = require('child_process')
-var cmd = 'open http://' + IPAddr + ':' + app.get('port') + '/canvas'
+var cmd = 'open http://' + IPAddr + ':' + app.get('port')
     // 监听端口 并给出提示信息
 app.listen(app.get('port'), function() {
     child_process.exec(cmd, function(err, stdout, error) {
