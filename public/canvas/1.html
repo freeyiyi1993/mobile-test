@@ -39,8 +39,8 @@ $(function () {
     var DPR = window.devicePixelRatio || 1;
 
     // 解决模糊问题
-    canvas.width = canvas.width * 2;
-    canvas.height = canvas.height * 2;
+    canvas.width = canvas.width * DPR;
+    canvas.height = canvas.height * DPR;
 
     // 写入刮层图片
     var image = new Image();

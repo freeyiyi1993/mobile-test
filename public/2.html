@@ -2,8 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style2.css">
     <title>Document</title>
+    <style>
+    body {
+        margin: 0;
+        background: #eee;
+    }
+    .circle {
+        position: relative;
+        margin: 80px auto;
+        width: 200px;
+        height: 200px;
+        background: #123456;
+        border-radius: 50%;
+        overflow: hidden;
+         outline: 1px solid;
+        /* -webkit-transform: matrix(1, 0, 0, 1, 0, 0); */
+        /* -webkit-transform: skew(0); */
+        /* -webkit-transform: scale(1); */
+        /* -webkit-transform: translate(0); */
+        /* -webkit-transform: translateX(0); */
+        /* -webkit-transform: translate3d(0,0,0); */
+        /* -webkit-transform: translate(0px, 0px); */
+        /*z-index: 0;*/
+        /* -webkit-transform: rotate(0deg); */
+        /* -webkit-transform: translateZ(0); */
+    }
+    .square {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        width: 80px;
+        height: 80px;
+        background: #fff;
+    }
+    @-webkit-keyframes rotate {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .circle:hover .square {
+        -webkit-animation: rotate 5s linear infinite;
+        animation: rotate 5s linear infinite;
+    }
+    </style>
 </head>
 <body>
 <div class="circle">
