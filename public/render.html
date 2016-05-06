@@ -3,8 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>webkit渲染过程</title>
+    <link rel="stylesheet" href="/css/render.css">
+    <script>
+        window.startTime = + new Date();
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 </head>
 <body>
-    <img src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png" alt="">
+    <div class="w-box">
+        <div class="list domcontentloaded">
+            <h2>DOMContentLoaded</h2>
+            <p class="status">Waiting...</p>
+            <div class="time">--</div>
+        </div>
+        <div class="list">VS</div>
+        <div class="list onload">
+            <h2>onload</h2>
+            <p class="status">Waiting...</p>
+            <div class="time">--</div>
+        </div>
+    </div>
+    <hr>
+<img src="http://web.archive.org/web/20150405114023/http://ie.microsoft.com/testdrive/HTML5/DOMContentLoaded/whidbey.jpg" alt="">
+<hr>
+<video width="480" controls poster="https://archive.org/download/WebmVp8Vorbis/webmvp8.gif">
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8_512kb.mp4" type="video/mp4">
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.ogv" type="video/ogg">
+    <source src="https://archive.org/download/WebmVp8Vorbis/webmvp8.webm" type="video/webm">
+    Your browser doesn't support HTML5 video tag.
+</video>
+
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+    document.querySelector('.domcontentloaded .status').innerHTML = 'DONE';
+    document.querySelector('.domcontentloaded .time').innerHTML = +new Date() - startTime + 'ms';
+},
+false);
+
+window.onload = function () {
+    document.querySelector('.onload .status').innerHTML = 'DONE';
+    document.querySelector('.onload .time').innerHTML = +new Date() - startTime + 'ms';
+};
+</script>
 </body>
 </html>

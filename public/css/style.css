@@ -1,0 +1,16 @@
+body {
+    background-color: #eee;
+}
+div {
+    width: 100px;
+    height: 100px;
+    background-color: #f6f6f6;
+}
+.alpha {
+    background-color: black;
+    opacity: .2;
+    transform: translateZ(0);
+}
+video {
+    border: 1px solid;
+}

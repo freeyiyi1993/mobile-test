@@ -75,7 +75,7 @@ function recompositeCanvases() {
 	canvas.temp.width = canvas.temp.width; // resizing clears
 
 	// Step 2: stamp the draw on the temp (source-over)
-	tempctx.drawImage(canvas.draw, 0, 0);
+	tempctx.drawImage(canvas.draw, 0, 0);// ????
 
 	// Step 3: stamp the background on the temp (!! source-atop mode !!)
 	tempctx.globalCompositeOperation = 'source-atop';
@@ -85,7 +85,7 @@ function recompositeCanvases() {
 	mainctx.drawImage(image.front.img, 0, 0);
 
 	// Step 5: stamp the temp on the display canvas (source-over)
-	mainctx.drawImage(canvas.temp, 0, 0);
+	mainctx.drawImage(canvas.temp, 0, 0);//????
 
 
 	// This code just updates the thumbnails:
@@ -96,7 +96,7 @@ function recompositeCanvases() {
 
 /**
  * Draw a scratch line
- * 
+ *
  * @param can the canvas
  * @param x,y the coordinates
  * @param fresh start a new line if true

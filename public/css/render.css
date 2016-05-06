@@ -1,0 +1,13 @@
+.w-box {
+    display: -webkit-box;
+    -webkit-box-pack: justify;
+    -webkit-box-align: center;
+}
+.list {
+    -webkit-flex: 1;
+}
+img {
+    display: block;
+    width: 300px;
+    margin: auto;
+}

@@ -1,0 +1,23 @@
+ul {
+    margin: 0;
+}
+.wrapper {
+    height: 40px;
+    overflow: hidden;
+    background-color: black;
+    transition: height 5s ease;
+}
+.header {
+    height: 40px;
+    line-height: 40px;
+    background-color: red;
+}
+.list {
+    background-color: green;
+}
+.list li {
+    line-height: 30px;
+}
+.wrapper.expand {
+    height: 130px;
+}

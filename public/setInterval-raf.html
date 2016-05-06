@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setInterval vs RAF </title>
+    <script src="/libs/zepto.js"></script>
+</head>
+<body>
+<!-- 测试目的：
+证实RAF在tab切换的时候会暂停
+
+测试结果：
+RAF比SI更快
+
+ -->
+    <span class="SI"></span> vs <span class="RAF"></span>
+    <hr>
+    <button class="s-SI">stop SI</button> vs <button class="s-RAF">stop RAF</button>
+<script>
+    $(function() {
+        var count1 = 0,
+            count2 = 0;
+
+        var timer = setInterval(function () {
+            $('.SI').html(count1++);
+        }, 1000/60);
+
+        var timerId = window.requestAnimationFrame(step);
+        function step(timestamp) {
+            $('.RAF').html(count2++);
+            timerId = window.requestAnimationFrame(step);
+        }
+
+        $('.s-SI').on('click', function () {
+            clearInterval(timer);
+        });
+        $('.s-RAF').on('click', function() {
+            window.cancelAnimationFrame(timerId);
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>height高度动画卡顿</title>
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,minimum-scale=1.0,initial-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="height_ka.css">
+    <script src="/libs/zepto.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">嘿 我是标题</div>
+        <div class="list">
+            <ul>
+                <li> 1 </li>
+                <li> 2 </li>
+                <li> 3 </li>
+            </ul>
+        </div>
+    </div>
+    <iframe src="http://www.qq.com/" frameborder="0"></iframe>
+<script>
+$(function() {
+    $('.wrapper').on('click', function () {
+        $(this).toggleClass('expand');
+    });
+
+    // fps
+    (function() {
+        var script = document.createElement('script');
+        script.onload = function() {
+            var stats = new Stats();
+            stats.domElement.style.cssText = 'position:fixed;left:0;top:0;z-index:10000';
+            document.body.appendChild(stats.domElement);
+            requestAnimationFrame(function loop() { stats.update();
+                requestAnimationFrame(loop) }); };
+        script.src = '//rawgit.com/mrdoob/stats.js/master/build/stats.min.js';
+        document.head.appendChild(script);
+    })()
+})
+
+
+</script>
+</body>
+</html>

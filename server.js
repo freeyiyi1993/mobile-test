@@ -69,12 +69,17 @@ walk(models_path)
 
 app.set('port', (process.env.PORT || 3000))
 app.use('/', express.static(path.join(__dirname, 'public')))
+app.get('/test', function(req, res) {
+    setTimeout(function () {
+        console.log(1);
+    }, 10)
+})
 
 // 计算本地IP
-while (os.networkInterfaces().en0[i].family !== 'IPv4') {
+while (os.networkInterfaces().en1[i].family !== 'IPv4') {
     i++
 }
-IPAddr = os.networkInterfaces().en0[i].address
+IPAddr = os.networkInterfaces().en1[i].address
     // 打开浏览器
 var child_process = require('child_process')
 var cmd = 'open http://' + IPAddr + ':' + app.get('port')

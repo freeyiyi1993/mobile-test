@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RAF学习测试</title>
+    <style>
+    .SomeElementYouWantToAnimate {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+    </style>
+</head>
+<body>
+<div class="SomeElementYouWantToAnimate"></div>
+<script>
+window.onload = function () {
+    var start = null;
+    var element = document.querySelector(".SomeElementYouWantToAnimate");
+    element.style.position = 'absolute';
+    var count=0;
+    var startTime = +new Date();
+
+    function step(timestamp) {
+        count++;
+      if (!start) start = timestamp;
+
+      // var thisT = timestamp;
+      // var delta =
+      var progress = timestamp - start;
+      console.log(timestamp);
+      element.style.height = Math.min(progress/10, 200) + "px";
+      if (progress < 2000) {
+        window.requestAnimationFrame(step);
+      }else {
+        console.log(count, progress, timestamp, start, 'time: ' + (+new Date() - startTime));
+      }
+    }
+
+    window.requestAnimationFrame(step);
+}
+</script>
+</body>
+</html>
