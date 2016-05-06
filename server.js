@@ -66,7 +66,7 @@ var walk = function(path) {
 
 walk(models_path)
 
-
+// 端口冲突如何设置？ PORT=6000 node server.js
 app.set('port', (process.env.PORT || 3000))
 app.use('/', express.static(path.join(__dirname, 'public')))
 app.get('/test', function(req, res) {
@@ -82,6 +82,7 @@ while (os.networkInterfaces().en1[i].family !== 'IPv4') {
 IPAddr = os.networkInterfaces().en1[i].address
     // 打开浏览器
 var child_process = require('child_process')
+
 var cmd = 'open http://' + IPAddr + ':' + app.get('port')
     // 监听端口 并给出提示信息
 app.listen(app.get('port'), function() {
